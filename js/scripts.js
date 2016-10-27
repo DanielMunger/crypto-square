@@ -3,27 +3,33 @@ var inputedSentence = [];
 var numberOfRows;
 var numberOfCols;
 var multiArray = new Array();
+var counter;
+var outputSentence = [];
 
 var cryptoSquare = function(input) {
+  counter=0;
   if(/[a-zA-Z]/.test(input[0]) === true) {
-    alert ("works")
+    input = input.replace(/ /g,'');
+    input = input.split("");
+    numberOfCols = parseInt(Math.sqrt(input.length));
+    numberOfRows = numberOfCols;
+    for (y=0;y<numberOfRows; y++) {
+      multiArray[y] = new Array();
+      for (x=0;x<numberOfCols;x++) {
+        multiArray[y][x] = input[counter]
+        counter++;
+        outputSentence.push(multiArray[y])
+      }
+     console.log(outputSentence);
+    }
+
+
   }
   else{
     alert ("doesnt works")
   }
-  input = input.replace(/ /g,'');
-  input = input.split("");
 
-  numberOfCols = parseInt(Math.sqrt(input.length));
-  numberOfRows = numberOfCols + 1;
-  console.log(numberOfCols);
 
-  for (i=0;i<numberOfCols;i++) {
-    multiArray[i]=new Array();
-    for (j=0;j<numberOfRows;j++) {
-      multiArray[i][j]=0;
-  }
- }
 };
 
 
